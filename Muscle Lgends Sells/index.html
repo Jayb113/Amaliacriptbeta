@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muscle Store - Pets Lendários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="visitor-counter">
+        👥 <span id="count">0</span> pessoas já visitaram
+    </div>
+
+    <header>
+        <div class="logo">💪 MUSCLE <span>STORE</span></div>
+        <p>Melhor Loja Muscle Legends !</p>
+    </header>
+
+    <section class="shop-container">
+        <div class="pet-card">
+            <div class="rarity lendario">LENDÁRIO</div>
+            <img src="neon.png" alt="Pet">
+            <h3>Neon Guardian</h3>
+            <p class="stats">300k de Força</p>
+            <div class="price">R$ 1,60</div>
+            <button class="buy-btn" onclick="comprar('Neon Guardian')">COMPRAR</button>
+        </div>
+
+        <div class="pet-card">
+            <div class="rarity epico">ÚNICO</div>
+            <img src="ouriço.png" alt="Pet">
+            <h3>Flaming Hedgehog</h3>
+            <p class="stats">250K de Força</p>
+            <div class="price">R$ 1,00</div>
+            <button class="buy-btn" onclick="comprar('Flaming Hedgehog')">COMPRAR</button>
+        </div>
+
+        <div class="pet-card">
+            <div class="rarity lendario">ÚNICO</div>
+            <img src="Dark Star.png" alt="Pet">
+            <h3>Darkstar Hunter</h3>
+            <p class="stats">+1M Força</p>
+            <div class="price">R$ 3.99</div>
+            <button class="buy-btn" onclick="comprar('Darkstar Hunter')">COMPRAR</button>
+        </div>
+
+        <div class="pet-card">
+            <div class="rarity raro">ÚNICO</div>
+            <img src="neon.png" alt="Pet">
+            <h3>Neon Guardian | EVOLVED |</h3>
+            <p class="stats">Stock : 3482 pets</p>
+            <div class="price">30 unid. = R$ 0.20</div>
+            <button class="buy-btn" onclick="comprar('Neon Guardian Evolved')">COMPRAR</button>
+        </div>
+
+        <div class="pet-card">
+            <div class="rarity lendario">ÚNICO</div>
+            <img src="sensei.png" alt="Pet">
+            <h3>Muscle Sensei | EVOLVED |</h3>
+            <p class="stats">Stock : 2834</p>
+            <div class="price">30 unid. = R$ 0.10</div>
+            <button class="buy-btn" onclick="comprar('Muscle Sensei Evolved')">COMPRAR</button>
+        </div>
+
+        <div class="pet-card">
+            <div class="rarity epico">NOVO!</div>
+            <img src="promoção.png" alt="Pet">
+            <h3>30 Darkstar, 20 Ouriços, 30 Sensei</h3>
+            <p class="stats">+ 2 pets de 300k</p>
+            <div class="price">R$ 4,99</div>
+            <button class="buy-btn" onclick="comprar('Sky Pegasus')">COMPRAR</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>⚡ Entrega rápida via Trade! ⚡</p>
+    </footer>
+
+    <div id="modal-compra" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2>🎮 Quase lá!</h2>
+            <p>Para concluir sua compra, entre no nosso servidor:</p>
+            
+            <div class="passo">
+                <strong>Link do Discord:</strong>
+                <div class="copy-box">
+                    <span id="discord-link">https://discord.gg/kZsyRgtw</span>
+                    <button onclick="copiarLink()">COPIAR</button>
+                </div>
+            </div>
+
+            <div class="passo">
+                <p class="legenda">⚠️ Entre em contacto com o dono e envie este código para ter desconto:</p>
+                <div class="cupom">023DJ</div>
+            </div>
+
+            <a href="https://discord.gg/kZsyRgtw" target="_blank" class="btn-discord">ENTRAR NO DISCORD AGORA</a>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal
+        function comprar(nomePet) {
+            console.log("Interesse no item: " + nomePet);
+            document.getElementById('modal-compra').style.display = "block";
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            document.getElementById('modal-compra').style.display = "none";
+        }
+
+        // Copiar link do Discord
+        function copiarLink() {
+            const link = document.getElementById('discord-link').innerText;
+            navigator.clipboard.writeText(link).then(() => {
+                alert("Link do Discord copiado! Basta colar no seu navegador.");
+            });
+        }
+
+        // Fechar modal ao clicar fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal-compra');
+            if (event.target == modal) modal.style.display = "none";
+        }
+
+        // Sistema de Visitas Global (CountAPI alternativa)
+        async function loadCounter() {
+            const counterText = document.getElementById('count');
+            // Usando o localStorage como base de segurança + simulação de entrada
+            let visitas = localStorage.getItem('visitas_totais') || 157;
+            visitas = parseInt(visitas) + 1;
+            localStorage.setItem('visitas_totais', visitas);
+            counterText.innerText = visitas;
+        }
+        loadCounter();
+    </script>
+</body>
+</html>

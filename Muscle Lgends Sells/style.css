@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: white;
+    text-align: center;
+    padding-bottom: 50px;
+    min-height: 100vh;
+}
+
+/* Contador */
+#visitor-counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 212, 255, 0.2);
+    border: 2px solid #00d4ff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    font-size: 0.8rem;
+    z-index: 100;
+}
+
+#count { color: #ffde00; font-weight: bold; }
+
+header { padding: 40px 20px; }
+.logo { font-size: 3rem; color: #00d4ff; text-shadow: 3px 3px #ff0055; }
+.logo span { color: #ffde00; }
+
+.shop-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pet-card {
+    background: #1a1a2e;
+    border: 3px solid #444;
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.pet-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.rarity {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    transform: rotate(45deg);
+    width: 120px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.lendario { background: #ffde00; color: #000; }
+.epico { background: #a020f0; color: #fff; }
+.raro { background: #00ff88; color: #000; }
+
+.pet-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #333;
+}
+
+.price { font-size: 1.2rem; color: #ffde00; margin-bottom: 15px; }
+
+.buy-btn {
+    width: 100%;
+    background: #ff0055;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px #900;
+}
+
+.buy-btn:active {
+    box-shadow: 0 0 #900;
+    transform: translateY(4px);
+}
+
+/* Modal Estilos */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background: #1a1a2e;
+    margin: 10% auto;
+    padding: 30px;
+    border: 2px solid #00d4ff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    color: white;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px; top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ff0055;
+}
+
+.copy-box {
+    display: flex;
+    background: #0f0c29;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #333;
+    justify-content: space-between;
+    align-items: center;
+    font-family: monospace;
+}
+
+.copy-box button {
+    background: #00d4ff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cupom {
+    background: #ffde00;
+    color: #000;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 10px 0;
+    border: 2px dashed #000;
+}
+
+.btn-discord {
+    display: block;
+    text-decoration: none;
+    background: #5865F2;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.legenda { font-size: 0.85rem; color: #bbb; }
